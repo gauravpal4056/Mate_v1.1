@@ -1,7 +1,6 @@
 
 const mongoose = require('mongoose');
-const Admin = require('./adminSchema');
-const Class = require('./classSchema');
+
 const RoomSchema =  new mongoose.Schema({
     collegeID: {
         type: String,
@@ -12,12 +11,12 @@ const RoomSchema =  new mongoose.Schema({
         required: true
     },
     admins:{
-        type: [Admin]
+        type:[Object]
     },
-    classes:[Class],
+    classes:[Object],
 
 })
 
 const Room = mongoose.model('Room', RoomSchema)
 
-moduole.exports = Room;
+module.exports = Room;

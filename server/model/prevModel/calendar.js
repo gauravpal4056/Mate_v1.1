@@ -1,13 +1,12 @@
 const mongoose = require('mongoose') 
 
 const calendarSchema = new mongoose.Schema({
-    master: {
-        type: Boolean,
-        required: true
+    collegeCode:{
+        type:String,
+        required:true,
     },
-    attendenceTime:{
-        type: String,
-        required: true
+    calendar:{
+        type: [object],
     },
 })
 

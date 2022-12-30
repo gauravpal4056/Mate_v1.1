@@ -1,14 +1,19 @@
 const mongoose = require('mongoose') 
-const StudentList = require('./studentListSchema')
-const Config = require('./config');
 
 const classSchema = new mongoose.Schema({
-    name: {
-        type: Boolean,
+    classId:{
+        type: string,
+        required: true,
+    },
+    className: {
+        type: string,
         required: true
     },
-    students: StudentList,
-    config: Config
+    students: [String],//id of students
+
+    calendar: [Object],
+
+    notice:[Object]
 
 })
 

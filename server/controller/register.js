@@ -24,12 +24,11 @@ const register = async (req, res) => {
                 password: passwordHash,
                 orientation:0,
             });
-            res.json({message: req.body})
+            //res.json({message: req.body})
             const savedStudent = await newStudent.save();
-            //res.status(201).json(savedStudent)
+            res.status(201).json(savedStudent)
         }
         else if(req.body.user === "admin"){
-            console.log(req.body);
 
             const{
                 user,
@@ -47,8 +46,8 @@ const register = async (req, res) => {
                 password: passwordHash,
             });
             const savedAdmin = await newAdmin.save();
-            res.json({message:req.body});
-            //res.status(201).json(savedAdmin)
+            //res.json({message:req.body});
+            res.status(201).json({user:savedAdmin, status:201})
         }
     } catch(e){
         res.status(500).json({error: e.message})

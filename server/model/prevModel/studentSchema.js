@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 
 
 const studentSchema = new mongoose.Schema({
-
-    rollNo:{
+    
+    user:{
+        type: String,
+        required: true
+    },rollNo:{
         type: Number,
         required: true
     },

@@ -6,19 +6,19 @@ const middleware = (req, res, next) => {
     console.log("middleware hit");
     next();
 }
-const setTimeToTrigger = require('./controller/updateCalendar');
-
-setInterval( setTimeToTrigger,2000)
+const authRouter = require('./router/authRouter')
 
 
 dotenv.config({path:'./config.env'})
 require('./db/conn')
 app.use(express.json())
-app.use(require('./router/auth'))
-
+// app.use(require('./router/auth'))
+// app.use(require('./router/createRoom'))
+// app.use(require('./router/adminLogin'))
+app.use('/auth', authRouter);
 
 app.get('/auth', (req, res) =>{
-    res.render("./public/auth")
+    res.send("/auth hit")
 })
 
 app.get('/admin',middleware, (req, res) => {
